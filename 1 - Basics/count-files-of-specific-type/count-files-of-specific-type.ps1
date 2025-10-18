@@ -4,4 +4,4 @@
 # '-File' returns results for files only, no directories.
 # '-Filter' returns results for specified string pattern.
 
-Get-ChildItem -Path "./" -Recurse -File -Filter *.ps1  
+Get-ChildItem -Path "$($PSScriptRoot)" -Recurse -File -Filter *.ps1  

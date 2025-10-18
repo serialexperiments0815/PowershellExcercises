@@ -3,5 +3,5 @@
 # As the -Filter parameter only matches folders at current level, not recursively in all subfolders.
 
 $nameOfFolder = "important"
-$directionOfFolder = Get-ChildItem -Path "./" -Recurse -Directory | Where-Object { $_.Name -eq $nameOfFolder }
-Copy-Item -Path $directionOfFolder.FullName -Destination (Join-Path "./safe/" $directionOfFolder.Name) -Recurse -Force 
+$directionOfFolder = Get-ChildItem -Path "$($PSScriptRoot)" -Recurse -Directory | Where-Object { $_.Name -eq $nameOfFolder }
+Copy-Item -Path $directionOfFolder.FullName -Destination (Join-Path "$($PSScriptRoot)/safe/" $directionOfFolder.Name) -Recurse -Force 

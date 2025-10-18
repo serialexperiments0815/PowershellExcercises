@@ -3,7 +3,7 @@
 # '-Recurse' instructs iterations through subdirectories. 
 # '-File' returns results for files only, no directories. 
 
-Get-ChildItem -Path './' -Recurse -File |
+Get-ChildItem -Path "$($PSScriptRoot)" -Recurse -File |
 
     # Call 'Select-Object' cmdlet method to return specified properties.
     # '-Property FullName' returns full String path for each object.
@@ -15,4 +15,4 @@ Get-ChildItem -Path './' -Recurse -File |
     # '-Path './folderFiles.csv'' returns output of file in current directory.
     # '-NoTypeInformation' supresses #TYPE metadata line.
 
-    Export-Csv -Path './folderFiles.csv' -NoTypeInformation
+    Export-Csv -Path "$($PSScriptRoot)/folderFiles.csv" -NoTypeInformation

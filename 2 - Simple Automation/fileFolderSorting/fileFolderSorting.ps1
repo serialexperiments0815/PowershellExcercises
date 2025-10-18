@@ -5,21 +5,21 @@
 [String[]]$pictureFormat = "jpg", "jpeg", "png", "gif", "bmp", "tiff", "tif", "webp", "heic", "heif", "raw", "cr2", "nef", "arw", "svg", "ico"
 [String[]]$documentFormat = "pdf", "doc", "docx", "odt", "rtf", "txt", "csv", "xls", "xlsx", "ods", "ppt", "pptx", "odp", "md", "html", "xml"
 
-$filesInFolder = Get-ChildItem -Path "./" -File
+$filesInFolder = Get-ChildItem -Path "$($PSScriptRoot)" -File
 
 foreach($file in $filesInFolder){
     $extension = $file.Extension.TrimStart('.').ToLower()
 
     if ($videoFormat -contains $extension){
-        Move-Item -Path $file.FullName -Destination "./videos/$($file.Name)"
+        Move-Item -Path $file.FullName -Destination "$($PSScriptRoot)/videos/$($file.Name)"
     }
 
     elseif ($pictureFormat -contains $extension) {
-        Move-Item -Path $file.FullName -Destination "./pictures/$($file.Name)"
+        Move-Item -Path $file.FullName -Destination "$($PSScriptRoot)/pictures/$($file.Name)"
     }
 
     elseif ($documentFormat -contains $extension) {
-        Move-Item -Path $file.FullName -Destination "./documents/$($file.Name)"
+        Move-Item -Path $file.FullName -Destination "$($PSScriptRoot)/documents/$($file.Name)"
     }
     
 }

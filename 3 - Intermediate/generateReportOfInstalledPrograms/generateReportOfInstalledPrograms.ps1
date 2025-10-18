@@ -3,8 +3,8 @@
 # Test-Path added to avoid Remove-Item error on first execution.
 # Remove-Item was added to avoid complications with Export-Csv function.
 # Delimiter was added to not have all properties stacked in the same column.
-if (Test-Path "./InstalledPrograms.csv"){
-Remove-Item -Path "./InstalledPrograms.csv"
+if (Test-Path "$($PSScriptRoot)/InstalledPrograms.csv"){
+Remove-Item -Path "$($PSScriptRoot)/InstalledPrograms.csv"
 }
 Get-Package | Select-Object -Property Name, Version, Summary |
-Export-Csv -Path "./InstalledPrograms.csv" -NoTypeInformation -Delimiter ";"
+Export-Csv -Path "$($PSScriptRoot)/InstalledPrograms.csv" -NoTypeInformation -Delimiter ";"

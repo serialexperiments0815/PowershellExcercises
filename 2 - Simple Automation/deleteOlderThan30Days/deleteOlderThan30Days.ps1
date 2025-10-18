@@ -8,7 +8,7 @@
 # (Get-Item $file).LastWriteTime = $oldDate
 # (Get-Item $file).LastAccessTime = $oldDate
 
-Get-ChildItem ".\" -Recurse | 
+Get-ChildItem "$($PSScriptRoot)" -Recurse | 
 Where-Object {$_.LastWriteTime -lt (Get-Date).AddDays(-30)} |
 Remove-Item -Force -WhatIf
 

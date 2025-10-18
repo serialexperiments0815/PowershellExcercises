@@ -2,7 +2,7 @@
 # "./" In current directory.
 # "-Filter *.PNG" Of the type PNG.
 
-Get-ChildItem "./" -Filter *.PNG |
+Get-ChildItem "$($PSScriptRoot)" -Filter *.PNG |
 
     # Calling 'ForEach-Object' loop method for iterating through returned files.
     ForEach-Object {
